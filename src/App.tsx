@@ -15,11 +15,27 @@ function App() {
           break;
 
         case '+': {
-          // If there use already clicked add, ignore it
+          // If user already clicked add, ignore it
           // FIXME: Use lodash for backward compatibility
           if (text.includes('+')) break;
 
           setText((prevValue) => `${prevValue} ${value} `);
+          break;
+        }
+
+        case '.': {
+          const [numberA = '', numberB = ''] = text.split(' + ');
+
+          // Prevent multiple "." from being added
+          // FIXME: Use lodash for backward compatibility
+          if (
+            (!numberA.includes('.') && numberA !== '') ||
+            (!numberB.includes('.') && numberB !== '')
+          ) {
+            setText((prevValue) => `${prevValue}${value}`);
+            break;
+          }
+
           break;
         }
 
