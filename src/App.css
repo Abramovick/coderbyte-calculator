@@ -28,8 +28,9 @@
 .textBox {
   flex: 1;
   height: 147px;
-  font-size: 72px;
+  font-size: 50px;
   width: 100%;
+  text-align: right;
 }
 
 .numbers {
